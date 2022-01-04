@@ -25,6 +25,7 @@ class SearchTableViewModelTest: XCTestCase {
         let expFetch = XCTestExpectation()
         
         repo.result
+            .skip(1)
             .subscribe(onNext: { info in
                 if let repo = info.repoList.first {
                     sut = SearchTableViewModel(repo)
@@ -34,7 +35,7 @@ class SearchTableViewModelTest: XCTestCase {
         
         // when
         repo.fetch(keyword: "Pokemon", page: 1)
-        wait(for: [expFetch], timeout: 1)
+        wait(for: [expFetch], timeout: 3)
         
         
         // then

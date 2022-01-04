@@ -12,7 +12,7 @@ protocol SearchRepository {
     var perPage: Int { get set }
     var onNetworking: PublishSubject<Bool> { get }
     var errorMessage: PublishSubject<String> { get }
-    var result: PublishSubject<RepositoryListInfo> { get }
+    var result: BehaviorRelay<RepositoryListInfo> { get }
     
     func fetch(keyword: String, page: Int)
 }
@@ -23,7 +23,7 @@ class SearchRepositoryImp: SearchRepository {
     var perPage: Int
     var onNetworking: PublishSubject<Bool> = .init()
     var errorMessage: PublishSubject<String> = .init()
-    var result: PublishSubject<RepositoryListInfo> = .init()
+    var result: BehaviorRelay<RepositoryListInfo> = .init(value: RepositoryListInfo.emptyResult)
     
     
     func fetch(keyword: String, page: Int) {
@@ -36,7 +36,7 @@ class SearchRepositoryImp: SearchRepository {
             
             switch result {
             case .success(let data):
-                self?.result.onNext(data)
+                self?.result.accept(data)
             case .failure(let error):
                 self?.errorMessage.onNext(error.localized)
             }

@@ -29,6 +29,8 @@
 		A0BA018C2783E3ED004E7457 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA018B2783E3ED004E7457 /* String+Utils.swift */; };
 		A0BA018E2783E437004E7457 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0BA018D2783E437004E7457 /* Localizable.strings */; };
 		A0BA01912783ECFB004E7457 /* LimitedMaxIntWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA01902783ECFB004E7457 /* LimitedMaxIntWrapper.swift */; };
+		A0BA0193278424AE004E7457 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA0192278424AE004E7457 /* SearchInteractor.swift */; };
+		A0BA019627842DAC004E7457 /* SearchViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA019427842DA9004E7457 /* SearchViewModelTest.swift */; };
 		A0BB7F7F27840A87002668F7 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F7E27840A87002668F7 /* SearchViewModel.swift */; };
 		A0BB7F8127840C16002668F7 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F8027840C16002668F7 /* SearchTableViewCell.swift */; };
 		A0BB7F8327840C5E002668F7 /* SearchTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F8227840C5E002668F7 /* SearchTableViewModel.swift */; };
@@ -76,6 +78,8 @@
 		A0BA018B2783E3ED004E7457 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		A0BA018D2783E437004E7457 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A0BA01902783ECFB004E7457 /* LimitedMaxIntWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedMaxIntWrapper.swift; sourceTree = "<group>"; };
+		A0BA0192278424AE004E7457 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		A0BA019427842DA9004E7457 /* SearchViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTest.swift; sourceTree = "<group>"; };
 		A0BB7F7E27840A87002668F7 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		A0BB7F8027840C16002668F7 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		A0BB7F8227840C5E002668F7 /* SearchTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModel.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				A0BA01862783DB21004E7457 /* Test */,
 				A0BA01832783D7B3004E7457 /* Repository */,
 				A0BA01802783D698004E7457 /* Entity */,
+				A0BA0192278424AE004E7457 /* SearchInteractor.swift */,
 				A0BB7F7E27840A87002668F7 /* SearchViewModel.swift */,
 				A0BA013E2782E450004E7457 /* SearchViewController.swift */,
 				A0BB7F8227840C5E002668F7 /* SearchTableViewModel.swift */,
@@ -244,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				A0BA01872783DB30004E7457 /* SearchRepositoryTest.swift */,
+				A0BA019427842DA9004E7457 /* SearchViewModelTest.swift */,
 				A0BB7F89278414C0002668F7 /* SearchTableViewModelTest.swift */,
 			);
 			path = Test;
@@ -417,6 +423,7 @@
 				A0BB7F7F27840A87002668F7 /* SearchViewModel.swift in Sources */,
 				A0BB7F8327840C5E002668F7 /* SearchTableViewModel.swift in Sources */,
 				A0BA01912783ECFB004E7457 /* LimitedMaxIntWrapper.swift in Sources */,
+				A0BA0193278424AE004E7457 /* SearchInteractor.swift in Sources */,
 				A0BB7F8127840C16002668F7 /* SearchTableViewCell.swift in Sources */,
 				A0BA01822783D6AD004E7457 /* RepositoryInfo.swift in Sources */,
 				A0BA013B2782E450004E7457 /* AppDelegate.swift in Sources */,
@@ -433,6 +440,7 @@
 			files = (
 				A0BB7F8B278415E1002668F7 /* SearchTableViewModelTest.swift in Sources */,
 				A0BA01522782E452004E7457 /* GitHubSearchTests.swift in Sources */,
+				A0BA019627842DAC004E7457 /* SearchViewModelTest.swift in Sources */,
 				A0BA01892783DB37004E7457 /* SearchRepositoryTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

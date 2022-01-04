@@ -10,6 +10,8 @@ import UIKit
 
 protocol SearchViewEventListner {
     func updateKeyword(_ keyword: String)
+    func loadMore()
+    func clear()
 }
 class SearchViewController: UIViewController {
 

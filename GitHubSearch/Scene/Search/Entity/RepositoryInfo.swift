@@ -18,6 +18,14 @@ struct RepositoryListInfo: Decodable {
         case incompleteResults = "incomplete_results"
         case repoList = "items"
     }
+    
+    static var emptyResult: RepositoryListInfo {
+        return RepositoryListInfo(
+            totalCount: 0,
+            incompleteResults: false,
+            repoList: []
+        )
+    }
 }
 
 struct RepositoryInfo: Decodable {

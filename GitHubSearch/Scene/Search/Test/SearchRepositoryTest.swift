@@ -27,6 +27,7 @@ class SearchRepositoryTest: XCTestCase {
         let expFetch = XCTestExpectation()
         
         sut.result
+            .skip(1)
             .subscribe(onNext: { info in
                 result = info
                 expFetch.fulfill()
@@ -34,7 +35,7 @@ class SearchRepositoryTest: XCTestCase {
         
         // when
         sut.fetch(keyword: "Pokemon", page: 1)
-        wait(for: [expFetch], timeout: 1)
+        wait(for: [expFetch], timeout: 3)
         
         
         // then
@@ -49,6 +50,7 @@ class SearchRepositoryTest: XCTestCase {
         let expFetch = XCTestExpectation()
         
         sut.result
+            .skip(1)
             .subscribe(onNext: { info in
                 resultList.append(info)
                 if resultList.count == 2 {
@@ -59,7 +61,7 @@ class SearchRepositoryTest: XCTestCase {
         // when
         sut.fetch(keyword: "Pokemon", page: 1)
         sut.fetch(keyword: "Pokemon", page: 2)
-        wait(for: [expFetch], timeout: 1)
+        wait(for: [expFetch], timeout: 3)
         
         
         // then
@@ -78,6 +80,7 @@ class SearchRepositoryTest: XCTestCase {
         var perPage40 = false
         
         sut.result
+            .skip(1)
             .subscribe(onNext: { info in
                 if self.sut.perPage == 20 && info.repoList.count == 20 {
                     perPage30 = true
@@ -93,11 +96,11 @@ class SearchRepositoryTest: XCTestCase {
         // when
         sut.perPage = 20
         sut.fetch(keyword: "Pokemon", page: 1)
-        wait(for: [expFetch20], timeout: 1)
+        wait(for: [expFetch20], timeout: 3)
         
         sut.perPage = 40
         sut.fetch(keyword: "Pokemon", page: 1)
-        wait(for: [expFetch40], timeout: 1)
+        wait(for: [expFetch40], timeout: 3)
         
         
         // then
