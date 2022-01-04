@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 enum GitHubAPI {
-    case searchRepo(keyword: String)
+    case searchRepo(keyword: String, page: Int, perPage: Int)
     
     var domain: String {
       return "https://api.github.com/"
@@ -49,9 +49,9 @@ enum GitHubAPI {
     
     var queryParameters: String? {
         switch self {
-        case .searchRepo(let keyword):
-            let new = keyword.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-            return "q=\(new)"
+        case .searchRepo(param: let param):
+            let new = param.keyword.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+            return "q=\(new)&page=\(param.page)&per_page=\(param.perPage)"
         }
     }
     

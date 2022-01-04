@@ -19,7 +19,7 @@ protocol SearchRepository {
 
 
 class SearchRepositoryImp: SearchRepository {
-    @LimitedMaxIntWrapper(maxValue: 100)
+    @LimitedMaxIntWrapper(maxValue: 100, value: 30)
     var perPage: Int
     var onNetworking: PublishSubject<Bool> = .init()
     var errorMessage: PublishSubject<String> = .init()
@@ -29,7 +29,7 @@ class SearchRepositoryImp: SearchRepository {
     func fetch(keyword: String, page: Int) {
         onNetworking.onNext(true)
         
-        let api = GitHubAPI.searchRepo(keyword: keyword)
+        let api = GitHubAPI.searchRepo(keyword: keyword, page: page, perPage: perPage)
         
         api.request(requestType: RepositoryListInfo.self) { [weak self] result in
             self?.onNetworking.onNext(false)

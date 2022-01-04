@@ -8,19 +8,19 @@
 import Foundation
 
 
-struct RepositoryListInfo: Codable {
+struct RepositoryListInfo: Decodable {
     let totalCount: Int
     let incompleteResults: Bool
-    let items: [RepositoryInfo]
+    let repoList: [RepositoryInfo]
 
     enum CodingKeys: String, CodingKey {
         case totalCount = "total_count"
         case incompleteResults = "incomplete_results"
-        case items
+        case repoList = "items"
     }
 }
 
-struct RepositoryInfo: Codable {
+struct RepositoryInfo: Decodable {
     let id: Int
     let nodeID, name, fullName: String?
     let owner: GitHubOwner
@@ -135,7 +135,7 @@ struct RepositoryInfo: Codable {
     }
 }
 
-struct GitHubLicense: Codable {
+struct GitHubLicense: Decodable {
     let key, name: String?
     let url: String?
     let spdxID, nodeID: String?
@@ -149,7 +149,7 @@ struct GitHubLicense: Codable {
     }
 }
 
-struct GitHubOwner: Codable {
+struct GitHubOwner: Decodable {
     let login: String?
     let id: Int
     let nodeID: String?

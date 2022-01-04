@@ -39,7 +39,70 @@ class SearchRepositoryTest: XCTestCase {
         
         // then
         XCTAssertGreaterThan(result?.totalCount ?? 0, 0)
-        XCTAssertGreaterThan(result?.items.count ?? 0, 0)
+        XCTAssertGreaterThan(result?.repoList.count ?? 0, 0)
+    }
+    
+    // Page 테스트
+    func testFetchForPage() {
+        // given
+        var resultList: [RepositoryListInfo] = []
+        let expFetch = XCTestExpectation()
+        
+        sut.result
+            .subscribe(onNext: { info in
+                resultList.append(info)
+                if resultList.count == 2 {
+                    expFetch.fulfill()
+                }
+            }).disposed(by: bag)
+        
+        // when
+        sut.fetch(keyword: "Pokemon", page: 1)
+        sut.fetch(keyword: "Pokemon", page: 2)
+        wait(for: [expFetch], timeout: 1)
+        
+        
+        // then
+        let firstID = resultList.first?.repoList.first?.id
+        let secondID = resultList.last?.repoList.first?.id
+        XCTAssertNotEqual(firstID, secondID)
+    }
+    
+    // Per Page 테스트
+    func testFetchForPerPage() {
+        // given
+        let expFetch20 = XCTestExpectation()
+        let expFetch40 = XCTestExpectation()
+        
+        var perPage30 = false
+        var perPage40 = false
+        
+        sut.result
+            .subscribe(onNext: { info in
+                if self.sut.perPage == 20 && info.repoList.count == 20 {
+                    perPage30 = true
+                    expFetch20.fulfill()
+                }
+                
+                if self.sut.perPage == 40 && info.repoList.count == 40 {
+                    perPage40 = true
+                    expFetch40.fulfill()
+                }
+            }).disposed(by: bag)
+        
+        // when
+        sut.perPage = 20
+        sut.fetch(keyword: "Pokemon", page: 1)
+        wait(for: [expFetch20], timeout: 1)
+        
+        sut.perPage = 40
+        sut.fetch(keyword: "Pokemon", page: 1)
+        wait(for: [expFetch40], timeout: 1)
+        
+        
+        // then
+        XCTAssertTrue(perPage30)
+        XCTAssertTrue(perPage40)
     }
     
     // 통신중 나타내기 테스트
@@ -57,7 +120,7 @@ class SearchRepositoryTest: XCTestCase {
             }).disposed(by: bag)
         
         // when
-        sut.fetch(keyword: "Pokemon")
+        sut.fetch(keyword: "Pokemon", page: 1)
         wait(for: [expFetch], timeout: 1)
         
         // then

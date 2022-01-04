@@ -28,7 +28,7 @@
 		A0BA01892783DB37004E7457 /* SearchRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA01872783DB30004E7457 /* SearchRepositoryTest.swift */; };
 		A0BA018C2783E3ED004E7457 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA018B2783E3ED004E7457 /* String+Utils.swift */; };
 		A0BA018E2783E437004E7457 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0BA018D2783E437004E7457 /* Localizable.strings */; };
-		A0BA01912783ECFB004E7457 /* MaxIntWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA01902783ECFB004E7457 /* MaxIntWrapper.swift */; };
+		A0BA01912783ECFB004E7457 /* LimitedMaxIntWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA01902783ECFB004E7457 /* LimitedMaxIntWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,7 @@
 		A0BA01872783DB30004E7457 /* SearchRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryTest.swift; sourceTree = "<group>"; };
 		A0BA018B2783E3ED004E7457 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		A0BA018D2783E437004E7457 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		A0BA01902783ECFB004E7457 /* MaxIntWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxIntWrapper.swift; sourceTree = "<group>"; };
+		A0BA01902783ECFB004E7457 /* LimitedMaxIntWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedMaxIntWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,7 +244,7 @@
 		A0BA018F2783ECAB004E7457 /* PropertyWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				A0BA01902783ECFB004E7457 /* MaxIntWrapper.swift */,
+				A0BA01902783ECFB004E7457 /* LimitedMaxIntWrapper.swift */,
 			);
 			path = PropertyWrapper;
 			sourceTree = "<group>";
@@ -394,7 +394,7 @@
 			files = (
 				A0BA018C2783E3ED004E7457 /* String+Utils.swift in Sources */,
 				A0BA013F2782E450004E7457 /* SearchViewController.swift in Sources */,
-				A0BA01912783ECFB004E7457 /* MaxIntWrapper.swift in Sources */,
+				A0BA01912783ECFB004E7457 /* LimitedMaxIntWrapper.swift in Sources */,
 				A0BA01822783D6AD004E7457 /* RepositoryInfo.swift in Sources */,
 				A0BA013B2782E450004E7457 /* AppDelegate.swift in Sources */,
 				A0BA017D2783122B004E7457 /* GitHubAPI.swift in Sources */,
