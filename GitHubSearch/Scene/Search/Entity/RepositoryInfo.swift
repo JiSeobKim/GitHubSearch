@@ -26,7 +26,7 @@ struct RepositoryInfo: Decodable {
     let owner: GitHubOwner
     let itemPrivate: Bool
     let htmlURL: String?
-    let itemDescription: String?
+    let description: String?
     let fork: Bool
     let url: String?
     let createdAt, updatedAt, pushedAt: String?
@@ -68,7 +68,7 @@ struct RepositoryInfo: Decodable {
         case owner
         case itemPrivate = "private"
         case htmlURL = "html_url"
-        case itemDescription = "description"
+        case description = "description"
         case fork, url
         case createdAt = "created_at"
         case updatedAt = "updated_at"

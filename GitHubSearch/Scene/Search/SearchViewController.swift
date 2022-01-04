@@ -7,6 +7,10 @@
 
 import UIKit
 
+
+protocol SearchViewEventListner {
+    func updateKeyword(_ keyword: String)
+}
 class SearchViewController: UIViewController {
 
     override func viewDidLoad() {

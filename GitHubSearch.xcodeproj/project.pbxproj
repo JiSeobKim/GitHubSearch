@@ -29,6 +29,12 @@
 		A0BA018C2783E3ED004E7457 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA018B2783E3ED004E7457 /* String+Utils.swift */; };
 		A0BA018E2783E437004E7457 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A0BA018D2783E437004E7457 /* Localizable.strings */; };
 		A0BA01912783ECFB004E7457 /* LimitedMaxIntWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BA01902783ECFB004E7457 /* LimitedMaxIntWrapper.swift */; };
+		A0BB7F7F27840A87002668F7 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F7E27840A87002668F7 /* SearchViewModel.swift */; };
+		A0BB7F8127840C16002668F7 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F8027840C16002668F7 /* SearchTableViewCell.swift */; };
+		A0BB7F8327840C5E002668F7 /* SearchTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F8227840C5E002668F7 /* SearchTableViewModel.swift */; };
+		A0BB7F8627840EE8002668F7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A0BB7F8527840EE8002668F7 /* Kingfisher */; };
+		A0BB7F88278411ED002668F7 /* Int+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F87278411ED002668F7 /* Int+Utils.swift */; };
+		A0BB7F8B278415E1002668F7 /* SearchTableViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F89278414C0002668F7 /* SearchTableViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +76,11 @@
 		A0BA018B2783E3ED004E7457 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		A0BA018D2783E437004E7457 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		A0BA01902783ECFB004E7457 /* LimitedMaxIntWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedMaxIntWrapper.swift; sourceTree = "<group>"; };
+		A0BB7F7E27840A87002668F7 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		A0BB7F8027840C16002668F7 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		A0BB7F8227840C5E002668F7 /* SearchTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModel.swift; sourceTree = "<group>"; };
+		A0BB7F87278411ED002668F7 /* Int+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Utils.swift"; sourceTree = "<group>"; };
+		A0BB7F89278414C0002668F7 /* SearchTableViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0BB7F8627840EE8002668F7 /* Kingfisher in Frameworks */,
 				A0BA0179278310D5004E7457 /* Alamofire in Frameworks */,
 				A0BA0174278310BF004E7457 /* RxRelay in Frameworks */,
 				A0BA0172278310BF004E7457 /* RxCocoa in Frameworks */,
@@ -185,7 +197,10 @@
 				A0BA01862783DB21004E7457 /* Test */,
 				A0BA01832783D7B3004E7457 /* Repository */,
 				A0BA01802783D698004E7457 /* Entity */,
+				A0BB7F7E27840A87002668F7 /* SearchViewModel.swift */,
 				A0BA013E2782E450004E7457 /* SearchViewController.swift */,
+				A0BB7F8227840C5E002668F7 /* SearchTableViewModel.swift */,
+				A0BB7F8027840C16002668F7 /* SearchTableViewCell.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -229,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				A0BA01872783DB30004E7457 /* SearchRepositoryTest.swift */,
+				A0BB7F89278414C0002668F7 /* SearchTableViewModelTest.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -237,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				A0BA018B2783E3ED004E7457 /* String+Utils.swift */,
+				A0BB7F87278411ED002668F7 /* Int+Utils.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -271,6 +288,7 @@
 				A0BA0173278310BF004E7457 /* RxRelay */,
 				A0BA0175278310BF004E7457 /* RxSwift */,
 				A0BA0178278310D5004E7457 /* Alamofire */,
+				A0BB7F8527840EE8002668F7 /* Kingfisher */,
 			);
 			productName = GitHubSearch;
 			productReference = A0BA01372782E450004E7457 /* GitHubSearch.app */;
@@ -347,6 +365,7 @@
 			packageReferences = (
 				A0BA016E278310BF004E7457 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				A0BA0177278310D5004E7457 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A0BB7F8427840EE8002668F7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = A0BA01382782E450004E7457 /* Products */;
 			projectDirPath = "";
@@ -392,9 +411,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0BB7F88278411ED002668F7 /* Int+Utils.swift in Sources */,
 				A0BA018C2783E3ED004E7457 /* String+Utils.swift in Sources */,
 				A0BA013F2782E450004E7457 /* SearchViewController.swift in Sources */,
+				A0BB7F7F27840A87002668F7 /* SearchViewModel.swift in Sources */,
+				A0BB7F8327840C5E002668F7 /* SearchTableViewModel.swift in Sources */,
 				A0BA01912783ECFB004E7457 /* LimitedMaxIntWrapper.swift in Sources */,
+				A0BB7F8127840C16002668F7 /* SearchTableViewCell.swift in Sources */,
 				A0BA01822783D6AD004E7457 /* RepositoryInfo.swift in Sources */,
 				A0BA013B2782E450004E7457 /* AppDelegate.swift in Sources */,
 				A0BA017D2783122B004E7457 /* GitHubAPI.swift in Sources */,
@@ -408,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0BB7F8B278415E1002668F7 /* SearchTableViewModelTest.swift in Sources */,
 				A0BA01522782E452004E7457 /* GitHubSearchTests.swift in Sources */,
 				A0BA01892783DB37004E7457 /* SearchRepositoryTest.swift in Sources */,
 			);
@@ -783,6 +807,14 @@
 				minimumVersion = 5.5.0;
 			};
 		};
+		A0BB7F8427840EE8002668F7 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -810,6 +842,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A0BA0177278310D5004E7457 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		A0BB7F8527840EE8002668F7 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0BB7F8427840EE8002668F7 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
