@@ -165,21 +165,7 @@ extension SearchViewController {
     }
     
     private func toogleNoResultLabel(isShow: Bool) {
-        switch isShow {
-        case true:
-            noResultLabel.isHidden = false
-            UIView.animate(withDuration: 0.7) {
-                self.noResultLabel.alpha = 1
-            }
-            
-        case false:
-            UIView.animate(withDuration: 0.7) {
-                self.noResultLabel.alpha = 0
-            } completion: { _ in
-                self.noResultLabel.isHidden = true
-            }
-
-        }
+        noResultLabel.isHidden = !isShow
     }
 }
 
