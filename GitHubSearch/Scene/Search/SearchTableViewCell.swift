@@ -14,6 +14,7 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var repositoryLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var watchersCountLabel: UILabel!
+    @IBOutlet weak var languageStackView: UIStackView!
     @IBOutlet weak var languageLabel: UILabel!
     
     override func awakeFromNib() {
@@ -32,7 +33,8 @@ class SearchTableViewCell: UITableViewCell {
         repositoryLabel.text = viewModel.repositoryName
         descriptionLabel.text = viewModel.description
         watchersCountLabel.text = viewModel.watchersCount
-//        languageLabel.text = viewModel
+        languageLabel.text = viewModel.language
+        languageStackView.isHidden = viewModel.language == nil
     }
 
 }

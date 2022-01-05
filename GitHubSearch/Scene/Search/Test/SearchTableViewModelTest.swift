@@ -20,7 +20,7 @@ class SearchTableViewModelTest: XCTestCase {
     // 가져오기 테스트
     func testFetch() {
         // given
-        let repo = SearchRepositoryImp()
+        let repo = SearchRepositoryMock()
         var sut: SearchTableViewModel?
         let expFetch = XCTestExpectation()
         
@@ -44,6 +44,7 @@ class SearchTableViewModelTest: XCTestCase {
         XCTAssertNotNil(sut?.description)
         XCTAssertNotNil(sut?.watchersCount)
         XCTAssertNotNil(sut?.avataImgURL)
+        XCTAssertNotNil(sut?.language)
     }
 }
 

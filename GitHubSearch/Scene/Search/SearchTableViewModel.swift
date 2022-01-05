@@ -13,12 +13,15 @@ struct SearchTableViewModel {
     var description: String?
     var watchersCount: String?
     var avataImgURL: URL?
+    var language: String?
     
     init(_ repoInfo: RepositoryInfo) {
         self.userName = repoInfo.owner.login
         self.repositoryName = repoInfo.name
         self.description = repoInfo.description
         self.watchersCount = repoInfo.watchers.decimalStyle
+        self.language = repoInfo.language
+        
         if let avatarURL = repoInfo.owner.avatarURL {
             self.avataImgURL = URL(string: avatarURL)
         }
