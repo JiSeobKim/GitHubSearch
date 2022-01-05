@@ -19,5 +19,9 @@ class SearchTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setViewModel(_ viewModel: SearchTableViewModel) {
+        
+    }
 
 }

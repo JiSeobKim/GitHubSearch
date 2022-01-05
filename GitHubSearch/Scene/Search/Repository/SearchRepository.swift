@@ -23,10 +23,11 @@ final class SearchRepositoryImp: SearchRepository {
     var perPage: Int
     var onNetworking: PublishSubject<Bool> = .init()
     var errorMessage: PublishSubject<String> = .init()
-    var result: BehaviorRelay<RepositoryListInfo> = .init(value: RepositoryListInfo.emptyResult)
+    var result: BehaviorRelay<RepositoryListInfo> = .init(value: .emptyResult)
     
     
     func fetch(keyword: String, page: Int) {
+        
         onNetworking.onNext(true)
         
         let api = GitHubAPI.searchRepo(keyword: keyword, page: page, perPage: perPage)

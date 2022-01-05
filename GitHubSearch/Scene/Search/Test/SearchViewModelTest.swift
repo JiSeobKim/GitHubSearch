@@ -128,7 +128,7 @@ class SearchViewModelTest: XCTestCase {
         var message: String?
         repository.isSuccessTest = false
         
-        sut.showMessage
+        sut.errorMessage
             .subscribe(onNext: { msg in
                 message = msg
                 expFetch.fulfill()

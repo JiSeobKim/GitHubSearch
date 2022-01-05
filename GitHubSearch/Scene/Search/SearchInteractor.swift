@@ -11,10 +11,10 @@ import Foundation
 
 protocol SearchInteractor {
     var keyword: String? { get set }
-    var result: BehaviorRelay<RepositoryListInfo> { get }
     var onNetworking: PublishSubject<Bool> { get }
     var errorMessage: PublishSubject<String> { get }
     
+    var newCellInfos: PublishSubject<[SearchTableViewModel]> { get }
     var tableReload: PublishSubject<Void> { get }
     var tableInsert: PublishSubject<[IndexPath]> { get }
     
@@ -30,10 +30,10 @@ final class SearchInteractorImp: SearchInteractor {
         }
     }
     
-    var result: BehaviorRelay<RepositoryListInfo> { repository.result }
     var onNetworking: PublishSubject<Bool> { repository.onNetworking }
     var errorMessage: PublishSubject<String> { repository.errorMessage }
 
+    var newCellInfos: PublishSubject<[SearchTableViewModel]>
     var tableReload: PublishSubject<Void>
     var tableInsert: PublishSubject<[IndexPath]>
     
@@ -46,6 +46,7 @@ final class SearchInteractorImp: SearchInteractor {
         self.repository = repository
         self.tableReload = .init()
         self.tableInsert = .init()
+        self.newCellInfos = .init()
         self.itemCount = 0
         self.bag = DisposeBag()
         self.subscribe()
@@ -72,6 +73,9 @@ final class SearchInteractorImp: SearchInteractor {
     }
     
     private func updateRepoInfos(list: [RepositoryInfo]) {
+        let new = list.map{SearchTableViewModel($0)}
+        newCellInfos.onNext(new)
+        
         switch self.repoPage == 0 {
         case true:
             // First

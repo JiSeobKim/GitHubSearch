@@ -14,7 +14,7 @@ protocol SearchViewModel: SearchViewEventListner {
     var tableReload: PublishSubject<Void> { get }
     var tableInsert: PublishSubject<[IndexPath]> { get }
     var isLoading: PublishSubject<Bool> { get }
-    var showMessage: PublishSubject<String> { get }
+    var errorMessage: PublishSubject<String> { get }
 }
 
 
@@ -26,7 +26,7 @@ final class SearchViewModelImp: SearchViewModel {
     var tableInsert: PublishSubject<[IndexPath]> { interactor.tableInsert }
     
     var isLoading: PublishSubject<Bool> { interactor.onNetworking }
-    var showMessage: PublishSubject<String> { interactor.errorMessage }
+    var errorMessage: PublishSubject<String> { interactor.errorMessage }
     
     private var interactor: SearchInteractor
     private var bag: DisposeBag
@@ -54,12 +54,10 @@ final class SearchViewModelImp: SearchViewModel {
     
     
     private func subscribe() {
-        interactor.result
-            .skip(1)
+        interactor.newCellInfos
             .subscribe(onNext: { [weak self] result in
                 guard let self = self else { return }
-                let new = result.repoList.map{SearchTableViewModel($0)}
-                self.repoList += new
+                self.repoList += result
             }).disposed(by: bag)
     }
 }

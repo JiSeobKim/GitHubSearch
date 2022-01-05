@@ -37,6 +37,7 @@
 		A0BB7F8627840EE8002668F7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A0BB7F8527840EE8002668F7 /* Kingfisher */; };
 		A0BB7F88278411ED002668F7 /* Int+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F87278411ED002668F7 /* Int+Utils.swift */; };
 		A0BB7F8B278415E1002668F7 /* SearchTableViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F89278414C0002668F7 /* SearchTableViewModelTest.swift */; };
+		A0BB7F8D27855864002668F7 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F8C27855864002668F7 /* Array+Utils.swift */; };
 		A0D0B1B3278454AF006AFC96 /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B1B2278454AF006AFC96 /* SearchBuilder.swift */; };
 		A0D0B1B62784565E006AFC96 /* SearchJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D0B1B52784565E006AFC96 /* SearchJSON.json */; };
 		A0D0B1B8278456D8006AFC96 /* LocalJsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B1B7278456D8006AFC96 /* LocalJsonLoader.swift */; };
@@ -89,6 +90,7 @@
 		A0BB7F8227840C5E002668F7 /* SearchTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModel.swift; sourceTree = "<group>"; };
 		A0BB7F87278411ED002668F7 /* Int+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Utils.swift"; sourceTree = "<group>"; };
 		A0BB7F89278414C0002668F7 /* SearchTableViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModelTest.swift; sourceTree = "<group>"; };
+		A0BB7F8C27855864002668F7 /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
 		A0D0B1B2278454AF006AFC96 /* SearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBuilder.swift; sourceTree = "<group>"; };
 		A0D0B1B52784565E006AFC96 /* SearchJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchJSON.json; sourceTree = "<group>"; };
 		A0D0B1B7278456D8006AFC96 /* LocalJsonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalJsonLoader.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			children = (
 				A0BA018B2783E3ED004E7457 /* String+Utils.swift */,
 				A0BB7F87278411ED002668F7 /* Int+Utils.swift */,
+				A0BB7F8C27855864002668F7 /* Array+Utils.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0BB7F88278411ED002668F7 /* Int+Utils.swift in Sources */,
+				A0BB7F8D27855864002668F7 /* Array+Utils.swift in Sources */,
 				A0BA018C2783E3ED004E7457 /* String+Utils.swift in Sources */,
 				A0BA013F2782E450004E7457 /* SearchViewController.swift in Sources */,
 				A0BB7F7F27840A87002668F7 /* SearchViewModel.swift in Sources */,

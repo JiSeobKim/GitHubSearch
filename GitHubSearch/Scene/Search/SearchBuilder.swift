@@ -18,6 +18,7 @@ struct SearchBuilder {
     init() {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         viewController = storyBoard.instantiateViewController(withIdentifier: "SearchVC") as! SearchViewController
+        
         repository = SearchRepositoryImp()
         interactor = SearchInteractorImp(repository: repository)
         viewModel = SearchViewModelImp(interactor: interactor)

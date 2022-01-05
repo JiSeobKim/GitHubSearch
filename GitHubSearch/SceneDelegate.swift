@@ -22,7 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         appWindow.windowScene = windowScene
         
         let searchBuilder = SearchBuilder()
-        appWindow.rootViewController = searchBuilder.viewController
+        let viewController = searchBuilder.viewController
+        let navigation = UINavigationController(rootViewController: viewController)
+        
+        navigation.navigationBar.prefersLargeTitles = true
+        
+        appWindow.rootViewController = navigation
         
         window = appWindow
     }
