@@ -12,9 +12,9 @@ enum APIError: Error {
     var localized: String {
         switch self {
         case .networkFail:
-            return "Fail network"
+            return "Fail network".localized
         case .convertingFail:
-            return "Fail response converting"
+            return "Fail response converting".localized
         }
     }
 }

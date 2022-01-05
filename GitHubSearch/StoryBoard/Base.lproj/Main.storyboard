@@ -34,17 +34,28 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="wvg-Mp-nnW"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt3-pP-yxb">
+                                <rect key="frame" x="164.5" y="74" width="85.5" height="28"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="jt3-pP-yxb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="ErW-DS-VQd"/>
+                            <constraint firstItem="jt3-pP-yxb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZQB-e7-Mmu"/>
                             <constraint firstItem="lF4-xx-x0z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bJt-BJ-BkE"/>
                             <constraint firstAttribute="bottom" secondItem="lF4-xx-x0z" secondAttribute="bottom" id="lQd-hW-otv"/>
+                            <constraint firstItem="jt3-pP-yxb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="s4D-ap-sFd"/>
                             <constraint firstItem="lF4-xx-x0z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="tvb-jy-zNv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lF4-xx-x0z" secondAttribute="trailing" id="uwe-zG-5AO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jt3-pP-yxb" secondAttribute="trailing" constant="12" id="vEh-ZZ-2Ws"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="noResultLabel" destination="jt3-pP-yxb" id="Abv-Jm-0ez"/>
                         <outlet property="tableView" destination="lF4-xx-x0z" id="lv9-Ni-gBT"/>
                     </connections>
                 </viewController>

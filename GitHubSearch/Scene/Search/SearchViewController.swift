@@ -18,6 +18,7 @@ protocol SearchViewEventListner {
 class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noResultLabel: UILabel!
     
     private lazy var searchController: UISearchController = {
         let controller = UISearchController(searchResultsController: nil)
@@ -28,23 +29,37 @@ class SearchViewController: UIViewController {
     private let activityIndicatorView: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView(style: .medium)
         activity.translatesAutoresizingMaskIntoConstraints = false
-        activity.backgroundColor = .systemGray3
+        activity.backgroundColor = .lightGray
+        activity.style = .large
+        activity.color = .white
         activity.hidesWhenStopped = true
         activity.stopAnimating()
-        activity.frame.size = .init(width: 70, height: 70)
-        activity.layer.cornerRadius = 8
+        activity.frame.size = .init(width: 90, height: 90)
+        activity.layer.cornerRadius = 12
+        activity.layer.cornerCurve = .continuous
         return activity
     }()
     
     var viewModel: SearchViewModel?
     private let cellID = "cell"
     private var bag = DisposeBag()
+    private var isEmpty: Bool {
+        return viewModel?.repoList.count == 0
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setUI()
         self.subscribe()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if self.tableView.contentInset == .zero {
+            self.tableView.contentInset = .init(top: 0, left: 0, bottom: 20, right: 0)
+        }
     }
 }
 
@@ -53,6 +68,7 @@ extension SearchViewController {
         self.title = "GitHub Search".localized
         self.navigationItem.searchController = searchController
         self.view.addSubview(activityIndicatorView)
+        self.noResultLabel.text = "Empty Result".localized
         
         NSLayoutConstraint.activate([
             activityIndicatorView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
@@ -67,7 +83,6 @@ extension SearchViewController {
         searchController.searchBar.rx
             .text
             .orEmpty
-            .filter{$0 != ""}
             .debounce(.seconds(1), scheduler: MainScheduler.instance)
             .subscribe(onNext: {[weak self] keyword in
                 self?.viewModel?.updateKeyword(keyword)
@@ -76,7 +91,9 @@ extension SearchViewController {
         viewModel?.tableReload
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: {[weak self] in
-                self?.tableView.reloadData()
+                guard let self = self else { return }
+                self.tableView.reloadData()
+                self.toogleNoResultLabel(isShow: self.isEmpty)
             }).disposed(by: bag)
         
         viewModel?.tableInsert
@@ -146,6 +163,24 @@ extension SearchViewController {
             }
         }
     }
+    
+    private func toogleNoResultLabel(isShow: Bool) {
+        switch isShow {
+        case true:
+            noResultLabel.isHidden = false
+            UIView.animate(withDuration: 0.7) {
+                self.noResultLabel.alpha = 1
+            }
+            
+        case false:
+            UIView.animate(withDuration: 0.7) {
+                self.noResultLabel.alpha = 0
+            } completion: { _ in
+                self.noResultLabel.isHidden = true
+            }
+
+        }
+    }
 }
 
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
@@ -165,6 +200,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         cCell.setViewModel(viewModel)
         
         return cCell
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.isNeedMoreLoad {
+            viewModel?.loadMore()
+        }
     }
 }
 

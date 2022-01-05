@@ -38,6 +38,7 @@
 		A0BB7F88278411ED002668F7 /* Int+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F87278411ED002668F7 /* Int+Utils.swift */; };
 		A0BB7F8B278415E1002668F7 /* SearchTableViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F89278414C0002668F7 /* SearchTableViewModelTest.swift */; };
 		A0BB7F8D27855864002668F7 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F8C27855864002668F7 /* Array+Utils.swift */; };
+		A0BB7F8F27856343002668F7 /* ScrollView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BB7F8E27856343002668F7 /* ScrollView+Utils.swift */; };
 		A0D0B1B3278454AF006AFC96 /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B1B2278454AF006AFC96 /* SearchBuilder.swift */; };
 		A0D0B1B62784565E006AFC96 /* SearchJSON.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D0B1B52784565E006AFC96 /* SearchJSON.json */; };
 		A0D0B1B8278456D8006AFC96 /* LocalJsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D0B1B7278456D8006AFC96 /* LocalJsonLoader.swift */; };
@@ -91,6 +92,7 @@
 		A0BB7F87278411ED002668F7 /* Int+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Utils.swift"; sourceTree = "<group>"; };
 		A0BB7F89278414C0002668F7 /* SearchTableViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModelTest.swift; sourceTree = "<group>"; };
 		A0BB7F8C27855864002668F7 /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Utils.swift"; sourceTree = "<group>"; };
+		A0BB7F8E27856343002668F7 /* ScrollView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Utils.swift"; sourceTree = "<group>"; };
 		A0D0B1B2278454AF006AFC96 /* SearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBuilder.swift; sourceTree = "<group>"; };
 		A0D0B1B52784565E006AFC96 /* SearchJSON.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchJSON.json; sourceTree = "<group>"; };
 		A0D0B1B7278456D8006AFC96 /* LocalJsonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalJsonLoader.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				A0BA018B2783E3ED004E7457 /* String+Utils.swift */,
 				A0BB7F87278411ED002668F7 /* Int+Utils.swift */,
 				A0BB7F8C27855864002668F7 /* Array+Utils.swift */,
+				A0BB7F8E27856343002668F7 /* ScrollView+Utils.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				A0BA01912783ECFB004E7457 /* LimitedMaxIntWrapper.swift in Sources */,
 				A0BA0193278424AE004E7457 /* SearchInteractor.swift in Sources */,
 				A0BB7F8127840C16002668F7 /* SearchTableViewCell.swift in Sources */,
+				A0BB7F8F27856343002668F7 /* ScrollView+Utils.swift in Sources */,
 				A0D0B1B3278454AF006AFC96 /* SearchBuilder.swift in Sources */,
 				A0D0B1BB27845728006AFC96 /* SearchRepositoryMock.swift in Sources */,
 				A0BA01822783D6AD004E7457 /* RepositoryInfo.swift in Sources */,

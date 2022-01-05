@@ -39,6 +39,11 @@ final class SearchViewModelImp: SearchViewModel {
     }
     
     func updateKeyword(_ keyword: String) {
+        guard keyword != "" else {
+            self.clear()
+            return
+        }
+        
         interactor.keyword = keyword
         interactor.fetch()
     }
