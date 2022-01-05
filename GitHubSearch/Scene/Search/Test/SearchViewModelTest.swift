@@ -13,13 +13,13 @@ import RxRelay
 class SearchViewModelTest: XCTestCase {
     private var sut: SearchViewModel!
 //    private var interactor: SearchInteractor!
-    private var repository: SearchRepository!
+    private var repository: SearchRepositoryMock!
     private var bag: DisposeBag!
     
     
     override func setUp() {
         super.setUp()
-        repository = SearchRepositoryImp()
+        repository = SearchRepositoryMock()
         let interactor = SearchInteractorImp(repository:  repository)
         sut = SearchViewModelImp(interactor: interactor)
         bag = DisposeBag()
@@ -42,7 +42,7 @@ class SearchViewModelTest: XCTestCase {
         wait(for: [expFetch], timeout: 5)
         
         // then
-        
+        XCTAssertEqual(repository.fetchCallCount, 1)
         XCTAssertTrue(isReload)
         XCTAssertGreaterThan(sut.repoList.count, 0)
     }
@@ -75,6 +75,7 @@ class SearchViewModelTest: XCTestCase {
         wait(for: [expFetchMore], timeout: 5)
         
         // then
+        XCTAssertEqual(repository.fetchCallCount, 2)
         XCTAssertEqual(indexes.first?.row, 20)
         XCTAssertEqual(indexes.last?.row, 39)
         XCTAssertEqual(sut.repoList.count, 40)
@@ -115,8 +116,79 @@ class SearchViewModelTest: XCTestCase {
         wait(for: [expClear], timeout: 2)
         
         // then
-        
+        XCTAssertEqual(repository.fetchCallCount, 1)
         XCTAssertEqual(isReload, [true, true])
         XCTAssertEqual(sut.repoList.count, 0)
+    }
+    
+    // ErrorMessage 테스트
+    func testErrorMessage() {
+        // given
+        let expFetch = XCTestExpectation()
+        var message: String?
+        repository.isSuccessTest = false
+        
+        sut.showMessage
+            .subscribe(onNext: { msg in
+                message = msg
+                expFetch.fulfill()
+            }).disposed(by: bag)
+        
+        // when
+        sut.updateKeyword("poke")
+        wait(for: [expFetch], timeout: 3)
+        
+        // then
+        XCTAssertEqual(repository.fetchCallCount, 1)
+        XCTAssertEqual(message, "Error")
+        XCTAssertEqual(sut.repoList.count, 0)
+    }
+    
+    // isLoading 테스트 (통신 성공)
+    func testIsLoadingOnSuccess() {
+        // given
+        let expFetch = XCTestExpectation()
+        var result: [Bool] = []
+        
+        sut.isLoading
+            .subscribe(onNext: { isOn in
+                result.append(isOn)
+                if result.count == 2 {
+                    expFetch.fulfill()
+                }
+            }).disposed(by: bag)
+        
+        // when
+        sut.updateKeyword("poke")
+        wait(for: [expFetch], timeout: 3)
+        
+        // then
+        XCTAssertEqual(repository.fetchCallCount, 1)
+        XCTAssertEqual(result, [true, false])
+    }
+    
+    // isLoading 테스트 (통신 실패)
+    func testIsLoadingOnFailure() {
+        // given
+        let expFetch = XCTestExpectation()
+        var result: [Bool] = []
+        
+        repository.isSuccessTest = false
+        
+        sut.isLoading
+            .subscribe(onNext: { isOn in
+                result.append(isOn)
+                if result.count == 2 {
+                    expFetch.fulfill()
+                }
+            }).disposed(by: bag)
+        
+        // when
+        sut.updateKeyword("poke")
+        wait(for: [expFetch], timeout: 3)
+        
+        // then
+        XCTAssertEqual(repository.fetchCallCount, 1)
+        XCTAssertEqual(result, [true, false])
     }
 }

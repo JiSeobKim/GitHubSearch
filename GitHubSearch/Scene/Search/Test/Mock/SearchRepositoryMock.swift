@@ -10,21 +10,27 @@ import RxSwift
 import RxRelay
 
 final class SearchRepositoryMock: SearchRepository {
-    var perPage: Int = 0
+    var perPage: Int = 30
     var onNetworking: PublishSubject<Bool> = .init()
     var errorMessage: PublishSubject<String> = .init()
     var result: BehaviorRelay<RepositoryListInfo> = .init(value: .emptyResult)
     
     var isSuccessTest = true
     
+    var fetchCallCount = 0
     func fetch(keyword: String, page: Int) {
-        switch isSuccessTest {
-        case true:
-            let data = dummyLoader()
-            result.accept(data)
-            
-        case false:
-            errorMessage.onNext("Error")
+        fetchCallCount += 1
+        onNetworking.onNext(true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.onNetworking.onNext(false)
+            switch self.isSuccessTest {
+            case true:
+                let data = self.dummyLoader()
+                self.result.accept(data)
+                
+            case false:
+                self.errorMessage.onNext("Error")
+            }
         }
     }
     

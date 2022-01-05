@@ -39,7 +39,7 @@ final class SearchInteractorImp: SearchInteractor {
     
     private let repository: SearchRepository
     private var bag: DisposeBag
-    private var repoPage: Int { itemCount / repository.perPage }
+    private var repoPage: Int { repository.perPage != 0 ? itemCount / repository.perPage : 30 }
     private var itemCount: Int
     
     init(repository: SearchRepository) {
@@ -65,6 +65,7 @@ final class SearchInteractorImp: SearchInteractor {
     
     private func subscribe() {
         repository.result
+            .skip(1)
             .subscribe(onNext: { [weak self] data in
                 self?.updateRepoInfos(list: data.repoList)
             }).disposed(by: bag)

@@ -55,6 +55,7 @@ final class SearchViewModelImp: SearchViewModel {
     
     private func subscribe() {
         interactor.result
+            .skip(1)
             .subscribe(onNext: { [weak self] result in
                 guard let self = self else { return }
                 let new = result.repoList.map{SearchTableViewModel($0)}
