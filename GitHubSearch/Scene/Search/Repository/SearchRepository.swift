@@ -18,7 +18,7 @@ protocol SearchRepository {
 }
 
 
-class SearchRepositoryImp: SearchRepository {
+final class SearchRepositoryImp: SearchRepository {
     @LimitedMaxIntWrapper(maxValue: 100, value: 30)
     var perPage: Int
     var onNetworking: PublishSubject<Bool> = .init()

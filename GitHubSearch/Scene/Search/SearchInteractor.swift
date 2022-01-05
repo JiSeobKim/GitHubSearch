@@ -22,7 +22,7 @@ protocol SearchInteractor {
     func fetch()
 }
 
-class SearchInteractorImp: SearchInteractor {
+final class SearchInteractorImp: SearchInteractor {
 
     var keyword: String? {
         didSet {

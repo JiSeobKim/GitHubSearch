@@ -81,15 +81,6 @@ enum GitHubAPI {
                 print(error)
                 complete(.failure(.convertingFail))
             }
-            
-//            guard
-//                let data = response.data,
-//                let convertedValue = try? JSONDecoder().decode(T.self, from: data)
-//            else {
-//                complete(.failure(.convertingFail))
-//                return
-//            }
-//            complete(.success(convertedValue))
         }
     }
 }

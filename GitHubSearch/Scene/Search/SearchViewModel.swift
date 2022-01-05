@@ -18,7 +18,7 @@ protocol SearchViewModel: SearchViewEventListner {
 }
 
 
-class SearchViewModelImp: SearchViewModel {
+final class SearchViewModelImp: SearchViewModel {
     
     var repoList: [SearchTableViewModel]
     
@@ -41,7 +41,7 @@ class SearchViewModelImp: SearchViewModel {
     func updateKeyword(_ keyword: String) {
         interactor.keyword = keyword
         interactor.fetch()
-    } 
+    }
     
     func loadMore() {
         interactor.fetch()
