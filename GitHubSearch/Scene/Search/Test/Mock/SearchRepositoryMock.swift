@@ -36,11 +36,10 @@ final class SearchRepositoryMock: SearchRepository {
     
     private func dummyLoader() -> RepositoryListInfo {
         guard
-            let data = DummyJsonLoader.load(api: .searchJSON),
-            let convertedValue = try? JSONDecoder().decode(RepositoryInfo.self, from: data)
+            let data = DummyJsonLoader.load(api: .searchJSON, type: RepositoryInfo.self)
         else { return .emptyResult }
         
-        let list: [RepositoryInfo] = .init(repeating: convertedValue, count: perPage)
+        let list: [RepositoryInfo] = .init(repeating: data, count: perPage)
         let listInfo = RepositoryListInfo(
             totalCount: perPage,
             incompleteResults: false,
