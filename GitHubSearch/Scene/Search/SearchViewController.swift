@@ -84,6 +84,7 @@ extension SearchViewController {
             .text
             .orEmpty
             .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
             .subscribe(onNext: {[weak self] keyword in
                 self?.viewModel?.updateKeyword(keyword)
             }).disposed(by: bag)
