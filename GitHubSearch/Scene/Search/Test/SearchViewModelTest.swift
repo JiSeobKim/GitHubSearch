@@ -12,10 +12,8 @@ import RxRelay
 
 class SearchViewModelTest: XCTestCase {
     private var sut: SearchViewModel!
-//    private var interactor: SearchInteractor!
     private var repository: SearchRepositoryMock!
     private var bag: DisposeBag!
-    
     
     override func setUp() {
         super.setUp()

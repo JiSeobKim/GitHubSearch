@@ -34,7 +34,6 @@ class SearchTableViewCell: UITableViewCell {
         descriptionLabel.text = viewModel.description
         watchersCountLabel.text = viewModel.watchersCount
         languageLabel.text = viewModel.language
-        languageStackView.isHidden = viewModel.language == nil
+        languageStackView.isHidden = viewModel.isHiddenLauguageStack
     }
-
 }

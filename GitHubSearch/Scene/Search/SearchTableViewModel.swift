@@ -14,6 +14,7 @@ struct SearchTableViewModel {
     var watchersCount: String?
     var avataImgURL: URL?
     var language: String?
+    var isHiddenLauguageStack: Bool
     
     init(_ repoInfo: RepositoryInfo) {
         self.userName = repoInfo.owner.login
@@ -21,6 +22,7 @@ struct SearchTableViewModel {
         self.description = repoInfo.description
         self.watchersCount = repoInfo.watchers.decimalStyle
         self.language = repoInfo.language
+        self.isHiddenLauguageStack = repoInfo.language == nil
         
         if let avatarURL = repoInfo.owner.avatarURL {
             self.avataImgURL = URL(string: avatarURL)
